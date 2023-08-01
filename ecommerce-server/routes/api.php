@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('/products', [CreateProducts::class, 'createProduct']);
+Route::post('/getproduct', [CreateProducts::class, "getProducts"]);
