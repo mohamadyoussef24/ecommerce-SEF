@@ -29,4 +29,14 @@ class CreateProducts extends Controller
             return response()->json(['message' => 'Product created successfully']);
         }
 
+        function getProducts(){
+            $products = Product::all();
+            foreach($products as $product) 
+            {
+                $image64 = base64_encode(file_get_contents($product->image_path));
+                $product -> image_path = $image64;
+            }
+            return json_encode(["products" => $products]);
+        }
+
 }
